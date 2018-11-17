@@ -956,7 +956,7 @@ bool pqxx::connection_base::read_copy_line(std::string &Line)
     {
       std::unique_ptr<char, void (*)(char *)> PQA(
           Buf, freepqmem_templated<char>);
-      Line.assign(Buf, line_len);
+      Line.assign(Buf, unsigned(line_len));
     }
     Result = true;
   }

@@ -1,4 +1,5 @@
-6.2.6
+7.0.0
+ - No longer need exact static type when deleting connection object.
  - Fix Windows bug where WSAPoll was never used.  Thanks dpolunin.
  - Fix Windows CMake build to link to socket libraries.  Thanks dpolunin.
  - Fix failure when doing multiple string conversions with Visual C++.

@@ -78,6 +78,7 @@ namespace pqxx
 class PQXX_LIBEXPORT connect_direct : public connectionpolicy
 {
 public:
+  connect_direct() =default;
   /// The parsing of options is the same as in libpq's PQconnect.
   /// See: https://www.postgresql.org/docs/10/static/libpq-connect.html
   explicit connect_direct(const std::string &opts) : connectionpolicy(opts) {}
@@ -96,6 +97,7 @@ using connection = basic_connection<connect_direct>;
 class PQXX_LIBEXPORT connect_lazy : public connectionpolicy
 {
 public:
+  connect_lazy() =default;
   /// The parsing of options is the same as in libpq's PQconnect.
   /// See: https://www.postgresql.org/docs/10/static/libpq-connect.html
   explicit connect_lazy(const std::string &opts) : connectionpolicy(opts) {}
@@ -117,6 +119,7 @@ using lazyconnection = basic_connection<connect_lazy>;
 class PQXX_LIBEXPORT connect_async : public connectionpolicy
 {
 public:
+  connect_async() =default;
   /// The parsing of options is the same as in libpq's PQConnect
   /// See: https://www.postgresql.org/docs/10/static/libpq-connect.html
   explicit connect_async(const std::string &opts);
@@ -143,6 +146,7 @@ using asyncconnection = basic_connection<connect_async>;
 class PQXX_LIBEXPORT connect_null  : public connectionpolicy
 {
 public:
+  connect_null() =default;
   explicit connect_null(const std::string &opts) : connectionpolicy(opts) {}
 };
 
