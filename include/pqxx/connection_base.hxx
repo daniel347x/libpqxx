@@ -697,6 +697,9 @@ protected:
 
     clearcaps();
   }
+
+  connection_base(connection_base &&);
+
   void init();
 
   void close() noexcept;

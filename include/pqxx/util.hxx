@@ -214,6 +214,7 @@ class unique
 public:
   unique() =default;
   unique(const unique &) =delete;
+  unique(unique &&rhs) : m_guest(rhs.m_guest) { rhs.m_guest = nullptr; }
   unique &operator=(const unique &) =delete;
 
   GUEST *get() const noexcept { return m_guest; }

@@ -80,6 +80,27 @@ void pqxx_notice_processor(void *conn, const char *msg)
 } // namespace
 
 
+pqxx::connection_base::connection_base(connection_base &&rhs) :
+        m_conn(std::move(rhs.m_conn)),
+        m_policy(rhs.m_policy),
+        m_trans(std::move(rhs.m_trans)),
+        m_errorhandlers(std::move(rhs.m_errorhandlers)),
+        m_trace(rhs.m_trace),
+        m_receivers(std::move(rhs.m_receivers)),
+        m_vars(std::move(rhs.m_vars)),
+        m_prepared(std::move(rhs.m_prepared)),
+        m_serverversion(rhs.m_serverversion),
+        m_reactivation_avoidance(std::move(rhs.m_reactivation_avoidance)),
+        m_unique_id(rhs.m_unique_id),
+        m_completed(rhs.m_completed),
+        m_inhibit_reactivation(rhs.m_inhibit_reactivation),
+        m_caps(std::move(rhs.m_caps)),
+        m_verbosity(rhs.m_verbosity)
+{
+  rhs.m_conn = nullptr;
+}
+
+
 std::string pqxx::encrypt_password(
         const std::string &user, const std::string &password)
 {
